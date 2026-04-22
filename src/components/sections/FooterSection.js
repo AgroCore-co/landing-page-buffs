@@ -44,23 +44,9 @@ export default function FooterSection() {
             </ul>
           </div>
 
-          <div className="space-y-6">
-            <p className="font-bold text-[#43310B] text-[10px] uppercase tracking-widest">Links Rapidos</p>
-            <ul className="space-y-2 text-[#404040]/60 text-sm font-medium">
-              <li><Link href="/institucional/quem-somos" className="hover:text-[#FCA90F] hover:translate-x-1 inline-block transition-transform">Sobre Nos</Link></li>
-              <li><Link href="/#features-beneficios" className="hover:text-[#FCA90F] hover:translate-x-1 inline-block transition-transform">Projeto Buffs</Link></li>
-              <li><Link href="/institucional/quem-somos" className="hover:text-[#FCA90F] hover:translate-x-1 inline-block transition-transform">Nossa Equipe</Link></li>
-              <li><Link href="/contato/fale-conosco" className="hover:text-[#FCA90F] hover:translate-x-1 inline-block transition-transform">Contato</Link></li>
-            </ul>
-          </div>
+       
 
-          <div className="space-y-6">
-            <p className="font-bold text-[#43310B] text-[10px] uppercase tracking-widest">Acesso</p>
-            <ul className="space-y-2 text-[#404040]/60 text-sm font-medium">
-              <li><Link href="/contato/fale-conosco" className="hover:text-[#FCA90F] hover:translate-x-1 inline-block transition-transform">Login Produtor</Link></li>
-              <li><Link href="/contato/ligamos-para-voce" className="hover:text-[#FCA90F] hover:translate-x-1 inline-block transition-transform">Agendar Demonstracao</Link></li>
-            </ul>
-          </div>
+          
         </div>
 
         <div className="mt-20 pt-8 border-t border-black/5">

@@ -1,17 +1,6 @@
 import { useState } from 'react';
 import Link from 'next/link';
 
-const contatoMenu = [
-  { label: 'Fale Conosco', href: '/contato/fale-conosco' },
-  { label: 'Ligamos para Você', href: '/contato/ligamos-para-voce' },
-];
-
-const institucionalMenu = [
-  { label: 'Quem Somos', href: '/institucional/quem-somos' },
- 
-  { label: 'Duvidas Frequentes', href: '/institucional/duvidas-frequentes' },
-  { label: 'Preços', href: '/institucional/precos' },
-];
 
 export default function Header({ isHeaderScrolled, isMobileMenuOpen, toggleMobileMenu }) {
   const [openMobileDropdown, setOpenMobileDropdown] = useState(null);
@@ -59,48 +48,7 @@ export default function Header({ isHeaderScrolled, isMobileMenuOpen, toggleMobil
             </svg>
           </Link>
 
-          {/* Nav Links Desktop */}
-          <div className="hidden lg:flex items-center gap-10">
-            <Link href="/" className="text-[11px] font-bold uppercase tracking-widest text-[#404040] hover:text-[#43310B] transition-colors">Home</Link>
-
-            <div className="relative group">
-              <Link href="/institucional/quem-somos" className="inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-widest text-[#404040] hover:text-[#43310B] transition-colors">
-                Institucional
-                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" className="transition-transform duration-200 group-hover:rotate-180 group-focus-within:rotate-180">
-                  <polyline points="6 9 12 15 18 9"></polyline>
-                </svg>
-              </Link>
-              <div className="absolute left-1/2 top-full mt-3 -translate-x-1/2 w-64 rounded-2xl border border-black/10 bg-white/95 backdrop-blur-xl shadow-xl p-2 opacity-0 invisible translate-y-2 transition-all duration-200 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 group-focus-within:opacity-100 group-focus-within:visible group-focus-within:translate-y-0">
-                {institucionalMenu.map((item) => (
-                  <Link key={item.href} href={item.href} className="block rounded-xl px-4 py-2.5 text-[12px] font-semibold text-[#43310B] hover:bg-[#FFF8ED] transition-colors">
-                    {item.label}
-                  </Link>
-                ))}
-              </div>
-            </div>
-            <div className="relative group">
-              <Link href="/contato/fale-conosco" className="inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-widest text-[#404040] hover:text-[#43310B] transition-colors">
-                Contato
-                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" className="transition-transform duration-200 group-hover:rotate-180 group-focus-within:rotate-180">
-                  <polyline points="6 9 12 15 18 9"></polyline>
-                </svg>
-              </Link>
-              <div className="absolute left-1/2 top-full mt-3 -translate-x-1/2 w-64 rounded-2xl border border-black/10 bg-white/95 backdrop-blur-xl shadow-xl p-2 opacity-0 invisible translate-y-2 transition-all duration-200 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 group-focus-within:opacity-100 group-focus-within:visible group-focus-within:translate-y-0">
-                {contatoMenu.map((item) => (
-                  <Link key={item.href} href={item.href} className="block rounded-xl px-4 py-2.5 text-[12px] font-semibold text-[#43310B] hover:bg-[#FFF8ED] transition-colors">
-                    {item.label}
-                  </Link>
-                ))}
-              </div>
-            </div>
-
-            <Link href="/solucoes" className="text-[11px] font-bold uppercase tracking-widest text-[#404040] hover:text-[#43310B] transition-colors">Soluções</Link>
-            <Link href="/ramos" className="text-[11px] font-bold uppercase tracking-widest text-[#404040] hover:text-[#43310B] transition-colors">Ramos</Link>
-            <a href="/login" className="text-[12px] font-bold text-[#43310B] hover:opacity-70 ml-2">Login</a>
-            <Link href="/contato/fale-conosco" className="bg-[#43310B] text-white px-6 py-2 rounded-full font-bold text-[11px] hover:bg-black transition-all whitespace-nowrap">
-              Quero melhorar minha produção
-            </Link>
-          </div>
+          
 
           {/* Botão Menu Mobile */}
           <button onClick={handleMenuToggle} className="lg:hidden text-[#43310B] p-2 focus:outline-none cursor-pointer">
@@ -116,7 +64,6 @@ export default function Header({ isHeaderScrolled, isMobileMenuOpen, toggleMobil
         </button>
 
         <div className="flex flex-col gap-5 text-xl sm:text-2xl font-bold text-[#43310B] mt-8 sm:mt-10">
-          <Link href="/" onClick={handleMenuToggle} className="hover:text-[#FCA90F] transition-colors">Home</Link>
 
           <div className="border-b border-black/10 pb-4">
             <button onClick={() => toggleDropdown('contato')} className="w-full inline-flex items-center justify-between hover:text-[#FCA90F] transition-colors">
@@ -128,11 +75,7 @@ export default function Header({ isHeaderScrolled, isMobileMenuOpen, toggleMobil
             <div className={`grid transition-[grid-template-rows] duration-300 ${openMobileDropdown === 'contato' ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'}`}>
               <div className="overflow-hidden">
                 <div className="mt-3 pl-4 border-l border-[#FFCF78]/40 flex flex-col gap-3 text-base font-semibold text-[#43310B]/80">
-                  {contatoMenu.map((item) => (
-                    <Link key={item.href} href={item.href} onClick={handleMenuToggle} className="hover:text-[#FCA90F] transition-colors">
-                      {item.label}
-                    </Link>
-                  ))}
+                  
                 </div>
               </div>
             </div>
@@ -148,24 +91,15 @@ export default function Header({ isHeaderScrolled, isMobileMenuOpen, toggleMobil
             <div className={`grid transition-[grid-template-rows] duration-300 ${openMobileDropdown === 'institucional' ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'}`}>
               <div className="overflow-hidden">
                 <div className="mt-3 pl-4 border-l border-[#FFCF78]/40 flex flex-col gap-3 text-base font-semibold text-[#43310B]/80">
-                  {institucionalMenu.map((item) => (
-                    <Link key={item.href} href={item.href} onClick={handleMenuToggle} className="hover:text-[#FCA90F] transition-colors">
-                      {item.label}
-                    </Link>
-                  ))}
+                  
                 </div>
               </div>
             </div>
           </div>
 
-          <Link href="/solucoes" onClick={handleMenuToggle} className="hover:text-[#FCA90F] transition-colors">Soluções</Link>
-          <Link href="/ramos" onClick={handleMenuToggle} className="hover:text-[#FCA90F] transition-colors">Ramos</Link>
 
           <div className="h-px w-full bg-black/10 my-3 sm:my-4"></div>
-          <a href="/login" onClick={handleMenuToggle} className="text-[#404040]/60 text-lg sm:text-xl hover:text-[#43310B] transition-colors">Login Produtor</a>
-          <Link href="/contato/fale-conosco" onClick={handleMenuToggle} className="bg-[#43310B] text-white text-center px-7 sm:px-8 py-3.5 sm:py-4 rounded-full font-bold text-sm hover:bg-black transition-all w-full mt-3 sm:mt-4">
-            Quero melhorar minha produção
-          </Link>
+          
         </div>
       </div>
     </>
