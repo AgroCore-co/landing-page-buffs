@@ -76,7 +76,7 @@ export default function About() {
 
               <div className="aspect-video bg-text-primary/5 overflow-hidden border border-text-primary/10">
                 <img 
-                  src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop" // Substitua pela URL da foto do seu grupo
+                  src="/grupo.jpg"
                   alt="Equipe AgroCore"
                   className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-100"
                 />
