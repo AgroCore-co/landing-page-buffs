@@ -36,6 +36,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/agrocore-logo.svg" type="image/svg+xml" />
         <link rel="canonical" href="https://landing-page-buffs.vercel.app/" />
+        <meta name="google-site-verification" content="MneZowdnImCcQWaKCeSW78IWl_tNx6JfxKAOdgcEQyQ" />
 
         {/* Open Graph */}
         <meta property="og:type" content="website" />
