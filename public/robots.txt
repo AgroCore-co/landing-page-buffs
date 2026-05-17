@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
 
-# Sitemaps
-Sitemap: /sitemap.xml
+Sitemap: https://landing-page-buffs.vercel.app/sitemap.xml

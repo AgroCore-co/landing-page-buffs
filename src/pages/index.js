@@ -35,19 +35,21 @@ export default function Home() {
         <meta name="robots" content="index, follow" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/agrocore-logo.svg" type="image/svg+xml" />
+        <link rel="canonical" href="https://landing-page-buffs.vercel.app/" />
 
         {/* Open Graph */}
         <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://landing-page-buffs.vercel.app/" />
         <meta property="og:title" content="AgroCore | Tecnologia Inteligente para o Agro" />
         <meta property="og:description" content="Plataforma mobile para otimização do manejo pecuário e previsão de produção leiteira." />
-        <meta property="og:image" content="/image1-slide.png" />
+        <meta property="og:image" content="https://landing-page-buffs.vercel.app/image1-slide.png" />
         <meta property="og:locale" content="pt_BR" />
 
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="AgroCore | Tecnologia Inteligente para o Agro" />
         <meta name="twitter:description" content="Plataforma mobile para otimização do manejo pecuário e previsão de produção leiteira." />
-        <meta name="twitter:image" content="/image1-slide.png" />
+        <meta name="twitter:image" content="https://landing-page-buffs.vercel.app/image1-slide.png" />
 
         {/* JSON-LD - Dados estruturados para o Google */}
         <script
@@ -61,19 +63,22 @@ export default function Home() {
                   "@id": "#organization",
                   name: "AgroCore",
                   description: "Plataforma mobile para otimização do manejo pecuário e previsão de produção leiteira.",
-                  logo: "/agrocore-logo.svg",
+                  url: "https://landing-page-buffs.vercel.app/",
+                  logo: "https://landing-page-buffs.vercel.app/agrocore-logo.svg",
                   sameAs: [],
                 },
                 {
                   "@type": "WebSite",
                   "@id": "#website",
                   name: "AgroCore",
+                  url: "https://landing-page-buffs.vercel.app/",
                   inLanguage: "pt-BR",
                   publisher: { "@id": "#organization" },
                 },
                 {
                   "@type": "WebPage",
                   "@id": "#webpage",
+                  url: "https://landing-page-buffs.vercel.app/",
                   name: "AgroCore | Tecnologia Inteligente para o Agro",
                   description: "AgroCore é uma plataforma mobile desenvolvida para otimizar o manejo pecuário, prever produção leiteira e identificar gargalos operacionais diretamente do curral.",
                   inLanguage: "pt-BR",
