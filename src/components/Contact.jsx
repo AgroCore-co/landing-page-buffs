@@ -2,9 +2,6 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 
 export default function Contact() {
-  const brandBrown = "#43310b";
-  const brandYellow = "#ffcf78";
-  const brandLight = "#fafafa";
   const easePremium = [0.76, 0, 0.24, 1];
 
   const [formData, setFormData] = useState({
@@ -25,7 +22,7 @@ export default function Contact() {
 
     // 1. Formatação da mensagem para o WhatsApp incluindo o E-mail
     const whatsappNumber = "5513996727279";
-    const text = `Olá! Gostaria de solicitar uma demonstração do Buffs.\n\n` +
+    const text = `Olá! Conheci a AgroCore pelo site e gostaria de falar com a equipe.\n\n` +
                  `*Nome:* ${formData.name}\n` +
                  `*E-mail:* ${formData.email}\n` + // Alterado aqui
                  `*Mensagem:* ${formData.message}`;
@@ -65,7 +62,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="contato" className="relative w-full min-h-screen flex items-center justify-center overflow-hidden bg-[#fafafa]">
+    <section id="contato" className="relative w-full min-h-screen flex items-center justify-center overflow-hidden bg-background">
       
       <div className="absolute inset-0 z-0">
         <img 
@@ -73,8 +70,8 @@ export default function Contact() {
           alt="Campo ao pôr do sol" 
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-[#43310b]/70 md:bg-[#43310b]/60 mix-blend-multiply"></div>
-        <div className="absolute inset-0 bg-gradient-to-b from-[#ffcf78]/30 md:from-[#ffcf78]/40 via-[#43310b]/80 to-[#43310b]"></div>
+        <div className="absolute inset-0 bg-text-primary/70 md:bg-text-primary/60 mix-blend-multiply"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-primary/30 md:from-primary/40 via-text-primary/80 to-text-primary"></div>
       </div>
 
       <motion.div 
@@ -87,10 +84,10 @@ export default function Contact() {
         
         <motion.div variants={itemVariants} className="mb-8 md:mb-12">
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white uppercase tracking-tighter leading-[1.1] md:leading-none mb-4 md:mb-6">
-            Vamos transformar juntos?
+            Fale com a equipe AgroCore
           </h2>
-          <p className="text-[#ffcf78] text-xs sm:text-sm md:text-lg font-light tracking-widest uppercase opacity-90 px-2">
-            Converse com nossa equipe e solicite uma demonstração
+          <p className="text-primary text-xs sm:text-sm md:text-lg font-light tracking-widest uppercase opacity-90 px-2">
+            Quer saber mais sobre o grupo ou sobre o projeto? Mande uma mensagem
           </p>
         </motion.div>
 
@@ -107,7 +104,7 @@ export default function Contact() {
               placeholder="Nome"
               required
               disabled={status === 'submitting'}
-              className="w-full px-5 py-4 md:px-6 bg-white/10 border border-white/20 text-white placeholder:text-white/50 focus:outline-none focus:border-[#ffcf78] focus:bg-white/20 transition-all duration-300 rounded-sm text-sm md:text-base disabled:opacity-50"
+              className="w-full px-5 py-4 md:px-6 bg-white/10 border border-white/20 text-white placeholder:text-white/50 focus:outline-none focus:border-primary focus:bg-white/20 transition-all duration-300 rounded-sm text-sm md:text-base disabled:opacity-50"
               onChange={handleChange}
             />
             
@@ -119,7 +116,7 @@ export default function Contact() {
               placeholder="Seu melhor e-mail"
               required
               disabled={status === 'submitting'}
-              className="w-full px-5 py-4 md:px-6 bg-white/10 border border-white/20 text-white placeholder:text-white/50 focus:outline-none focus:border-[#ffcf78] focus:bg-white/20 transition-all duration-300 rounded-sm text-sm md:text-base disabled:opacity-50"
+              className="w-full px-5 py-4 md:px-6 bg-white/10 border border-white/20 text-white placeholder:text-white/50 focus:outline-none focus:border-primary focus:bg-white/20 transition-all duration-300 rounded-sm text-sm md:text-base disabled:opacity-50"
               onChange={handleChange}
             />
 
@@ -129,7 +126,7 @@ export default function Contact() {
               placeholder="Mensagem"
               rows="4"
               disabled={status === 'submitting'}
-              className="w-full px-5 py-4 md:px-6 bg-white/10 border border-white/20 text-white placeholder:text-white/50 focus:outline-none focus:border-[#ffcf78] focus:bg-white/20 transition-all duration-300 rounded-sm resize-none text-sm md:text-base disabled:opacity-50"
+              className="w-full px-5 py-4 md:px-6 bg-white/10 border border-white/20 text-white placeholder:text-white/50 focus:outline-none focus:border-primary focus:bg-white/20 transition-all duration-300 rounded-sm resize-none text-sm md:text-base disabled:opacity-50"
               onChange={handleChange}
             ></textarea>
           </div>
@@ -141,24 +138,24 @@ export default function Contact() {
               className={`group relative w-full overflow-hidden border-2 py-4 md:py-5 text-[10px] md:text-xs font-black tracking-[0.2em] md:tracking-[0.3em] uppercase transition-all duration-300 ${
                 status === 'success' 
                   ? 'border-[#25D366] text-[#25D366] bg-white/5' 
-                  : 'border-[#ffcf78] text-[#ffcf78] hover:text-[#43310b]'
+                  : 'border-primary text-primary hover:text-text-primary'
               }`}
             >
               <span className="relative z-10">
-                {status === 'idle' && 'Solicitar atendimento via WhatsApp'}
+                {status === 'idle' && 'Falar com a equipe no WhatsApp'}
                 {status === 'submitting' && 'Iniciando Conversa...'}
                 {status === 'success' && 'Redirecionando!'}
               </span>
               
               {status === 'idle' && (
-                <div className="absolute inset-0 z-0 h-full w-full translate-y-full bg-[#ffcf78] transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:translate-y-0"></div>
+                <div className="absolute inset-0 z-0 h-full w-full translate-y-full bg-primary transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:translate-y-0"></div>
               )}
             </button>
           </div>
         </motion.form>
 
         <motion.div variants={itemVariants} className="mt-8 md:mt-12 text-white/60 text-[10px] sm:text-xs md:text-sm tracking-widest uppercase pb-12 md:pb-0">
-          <p>Ou entre em contacto por telefone: <br className="block sm:hidden" /><span className="text-[#ffcf78] font-bold mt-1 sm:mt-0 inline-block">(13) 9967-27279</span></p>
+          <p>Ou entre em contacto por telefone: <br className="block sm:hidden" /><span className="text-primary font-bold mt-1 sm:mt-0 inline-block">(13) 9967-27279</span></p>
         </motion.div>
 
       </motion.div>

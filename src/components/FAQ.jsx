@@ -9,20 +9,20 @@ export default function FAQ() {
 
   const faqs = [
     {
-      question: "O aplicativo funciona no momento da coleta no curral?",
-      answer: "Sim. O Buffs possui um aplicativo mobile desenhado especificamente para funcionários e veterinários. Ele possui uma interface enxuta que garante agilidade no lançamento de dados de manejo e sanidade diretamente do campo."
+      question: "Quem são os integrantes da AgroCore?",
+      answer: "A AgroCore é formada por cinco estudantes da Fatec Registro, cada um responsável por uma frente do projeto: liderança, back-end, front-end, design e análise de dados. Você conhece cada um deles na seção Equipe."
     },
     {
-      question: "Como a Inteligência Artificial melhora a minha produção?",
-      answer: "O nosso sistema possui dois motores de IA. Utilizamos um modelo preditivo avançado (Random Forest Regressor) para prever a produção individual de leite de cada fêmea com base no histórico zootécnico e genético. Além disso, utilizamos IA generativa para analisar sintomas e classificar automaticamente a urgência de alertas, como suspeitas de mastite."
+      question: "Onde o projeto foi desenvolvido?",
+      answer: "Todo o projeto nasceu e foi desenvolvido na Fatec Registro, como trabalho do grupo, unindo o aprendizado em sala de aula à observação direta dos desafios reais do campo."
     },
     {
-      question: "Posso utilizar o Buffs para gerenciar gado bovino?",
-      answer: "Não. A biologia é diferente. Softwares genéricos consideram uma gestação de 9 meses, o que gera falsos alertas de atraso na bubalinocultura. O Buffs é o único sistema calibrado com IA exclusiva para o ciclo reprodutivo de 10 meses das búfalas."
+      question: "O Buffs é um produto comercial?",
+      answer: "O Buffs é, antes de tudo, um projeto acadêmico desenvolvido pela equipe AgroCore. Ele demonstra na prática as competências técnicas e a capacidade de trabalho em equipe de cada integrante."
     },
     {
-      question: "Quais informações consigo centralizar na plataforma?",
-      answer: "Através do painel Web para gestores, você centraliza a árvore genealógica, o prontuário sanitário individual (vacinas e tratamentos), o desempenho da lactação, o controle reprodutivo e a distribuição de animais por piquetes."
+      question: "Como posso falar com o time?",
+      answer: "Use a seção de contato no final da página. O grupo está aberto a dúvidas, trocas de ideia, parcerias e novas oportunidades."
     }
   ];
 
@@ -31,14 +31,14 @@ export default function FAQ() {
   };
 
   return (
-    <section id="faq" className="relative w-full py-20 md:py-32 bg-[#fafafa] flex items-center justify-center font-sans px-4 sm:px-6">
+    <section id="faq" className="relative w-full py-20 md:py-32 bg-background flex items-center justify-center font-sans px-4 sm:px-6">
       <div className="w-full max-w-4xl relative z-10">
         
         <div className="text-center mb-12 md:mb-16">
-          <span className="text-[#ffcf78] text-[9px] md:text-[10px] font-black tracking-[0.3em] uppercase block mb-3">
+          <span className="text-primary text-[9px] md:text-[10px] font-black tracking-[0.3em] uppercase block mb-3">
             Dúvidas Frequentes
           </span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#43310b] uppercase tracking-tighter">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-text-primary uppercase tracking-tighter">
             Tudo o que precisa saber.
           </h2>
         </div>
@@ -61,19 +61,19 @@ export default function FAQ() {
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 1, delay: 0.2 + (index * 0.1), ease: easePremium }}
                 style={{ originX: 0 }}
-                className="absolute bottom-0 left-0 w-full h-[1px] bg-[#43310b]/15"
+                className="absolute bottom-0 left-0 w-full h-[1px] bg-text-primary/15"
               />
 
               <button 
                 onClick={() => toggleFAQ(index)}
                 className="w-full py-6 flex justify-between items-center text-left focus:outline-none group"
               >
-                <span className={`text-base md:text-lg font-medium transition-colors duration-300 ${activeIndex === index ? 'text-[#ffcf78]' : 'text-[#43310b] group-hover:text-[#ffcf78]'}`}>
+                <span className={`text-base md:text-lg font-medium transition-colors duration-300 ${activeIndex === index ? 'text-primary' : 'text-text-primary group-hover:text-primary'}`}>
                   {faq.question}
                 </span>
                 <span className="ml-6 flex-shrink-0 relative w-6 h-6 flex items-center justify-center">
-                  <span className={`absolute w-4 h-[2px] bg-[#43310b] transition-all duration-300 ${activeIndex === index ? 'bg-[#ffcf78]' : 'group-hover:bg-[#ffcf78]'}`}></span>
-                  <span className={`absolute h-4 w-[2px] bg-[#43310b] transition-all duration-300 ${activeIndex === index ? 'rotate-90 bg-[#ffcf78] opacity-0' : 'group-hover:bg-[#ffcf78]'}`}></span>
+                  <span className={`absolute w-4 h-[2px] bg-text-primary transition-all duration-300 ${activeIndex === index ? 'bg-primary' : 'group-hover:bg-primary'}`}></span>
+                  <span className={`absolute h-4 w-[2px] bg-text-primary transition-all duration-300 ${activeIndex === index ? 'rotate-90 bg-primary opacity-0' : 'group-hover:bg-primary'}`}></span>
                 </span>
               </button>
               
@@ -85,7 +85,7 @@ export default function FAQ() {
                     exit={{ height: 0, opacity: 0 }}
                     transition={{ duration: 0.4, ease: easePremium }}
                   >
-                    <p className="pb-6 text-[#43310b]/70 text-sm md:text-base leading-relaxed pr-8">
+                    <p className="pb-6 text-text-primary/70 text-sm md:text-base leading-relaxed pr-8">
                       {faq.answer}
                     </p>
                   </motion.div>

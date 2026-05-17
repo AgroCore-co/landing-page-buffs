@@ -1,22 +1,35 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@theme {
+  --color-primary: #4caf50;
+  --color-primary-hover: #53c357;
+  --color-primary-light: #53c357;
+  --color-primary-dark: #3d8b40;
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  --color-background: #fbedd7;
+  --color-background-secondary: #fbedd7;
+  --color-background-dark: #744533;
+
+  --color-text-primary: #744533;
+  --color-text-secondary: #404040;
+  --color-text-tertiary: #838181;
+  --color-text-light: #fbedd7;
+  --color-text-dark: #744533;
+
+  --color-border-primary: #b0b0b0;
+  --color-border-focus: #4caf50;
+  --color-border-error: #e90000;
+
+  --color-link-primary: #744533;
+  --color-link-hover: #4caf50;
+
+  --color-success: #4caf50;
+  --color-error: #e90000;
+  --color-warning: #fca90f;
+  --color-info: #b0b0b0;
+
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
 }
 
 /* Adicionado para o deslize suave entre as seções */
@@ -25,7 +38,7 @@ html {
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background: var(--color-background);
+  color: var(--color-text-primary);
   font-family: Arial, Helvetica, sans-serif;
 }

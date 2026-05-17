@@ -49,26 +49,26 @@ export default function Stats() {
   const statsData = [
     {
       prefix: "",
-      number: "20",
+      number: "5",
       suffix: "",
-      label: "Anos de mercado",
+      label: "Integrantes dedicados",
     },
     {
       prefix: "+ ",
-      number: "1",
-      suffix: " mil",
-      label: "Utilizadores ativos",
+      number: "2",
+      suffix: " anos",
+      label: "De desenvolvimento",
     },
     {
       prefix: "+ ",
-      number: "22",
-      suffix: " milhões",
-      label: "De búfalos rastreados",
+      number: "8",
+      suffix: "",
+      label: "Tecnologias aplicadas",
     },
   ];
 
   return (
-    <section className="relative w-full h-screen overflow-hidden flex items-center justify-center font-sans bg-[#fafafa]">
+    <section className="relative w-full h-screen overflow-hidden flex items-center justify-center font-sans bg-background">
 
       {/* Fundo com imagem */}
       <motion.div
@@ -83,11 +83,11 @@ export default function Stats() {
           alt="Paisagem agrícola com névoa"
           className="object-cover w-full h-full opacity-40 grayscale-[50%]"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#fafafa]/90 via-[#fafafa]/80 to-[#fafafa]"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-background/90 via-background/80 to-background"></div>
       </motion.div>
 
       {/* Elemento decorativo */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-[#FFCF78]/20 blur-[100px] pointer-events-none mix-blend-multiply"></div>
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-primary/20 blur-[100px] pointer-events-none mix-blend-multiply"></div>
 
       {/* Conteúdo principal */}
       <motion.div
@@ -100,13 +100,13 @@ export default function Stats() {
 
         {/* Cabeçalho */}
         <motion.div variants={itemVariants} className="mb-20 md:mb-28 flex flex-col items-center">
-          <span className="text-[10px] md:text-xs font-black tracking-[0.4em] uppercase text-[#43310b]/60 mb-4 block">
-            Growth by Data
+          <span className="text-[10px] md:text-xs font-black tracking-[0.4em] uppercase text-text-primary/60 mb-4 block">
+            O grupo em números
           </span>
-          <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold leading-[1.1] text-[#43310b] uppercase max-w-4xl tracking-tighter">
-            A nossa experiência <br className="hidden md:block" /> marca a diferença.
+          <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold leading-[1.1] text-text-primary uppercase max-w-4xl tracking-tighter">
+            Um time pequeno, <br className="hidden md:block" /> um impacto real.
           </h2>
-          <div className="w-16 h-[3px] bg-[#FFCF78] mt-8"></div>
+          <div className="w-16 h-[3px] bg-primary mt-8"></div>
         </motion.div>
 
         {/* Grelha de estatísticas */}
@@ -117,11 +117,11 @@ export default function Stats() {
               variants={itemVariants}
               className="flex flex-col items-center justify-center relative group"
             >
-              <div className="absolute inset-0 bg-[#FFCF78]/10 scale-0 group-hover:scale-110 transition-transform duration-700 rounded-2xl -z-10 blur-xl"></div>
+              <div className="absolute inset-0 bg-primary/10 scale-0 group-hover:scale-110 transition-transform duration-700 rounded-2xl -z-10 blur-xl"></div>
 
-              <div className="flex items-baseline justify-center text-[#43310b] mb-2 whitespace-nowrap">
+              <div className="flex items-baseline justify-center text-text-primary mb-2 whitespace-nowrap">
                 {stat.prefix && (
-                  <span className="text-4xl md:text-6xl font-medium text-[#ffcf78] mr-2 md:mr-3 tracking-tighter">
+                  <span className="text-4xl md:text-6xl font-medium text-primary mr-2 md:mr-3 tracking-tighter">
                     {stat.prefix}
                   </span>
                 )}
@@ -129,13 +129,13 @@ export default function Stats() {
                   <AnimatedNumber value={Number(stat.number)} />
                 </span>
                 {stat.suffix && (
-                  <span className="text-xl md:text-2xl lg:text-3xl font-bold ml-1 md:ml-2 tracking-tight text-[#43310b]">
+                  <span className="text-xl md:text-2xl lg:text-3xl font-bold ml-1 md:ml-2 tracking-tight text-text-primary">
                     {stat.suffix}
                   </span>
                 )}
               </div>
 
-              <p className="text-sm md:text-base font-medium tracking-[0.15em] uppercase text-[#43310b]/70 mt-4">
+              <p className="text-sm md:text-base font-medium tracking-[0.15em] uppercase text-text-primary/70 mt-4">
                 {stat.label}
               </p>
             </motion.div>

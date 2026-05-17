@@ -2,11 +2,11 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 export default function Hero() {
-  const brandHighlight = "#ffcf78";
+  const brandHighlight = "var(--color-primary)";
   const easePremium = [0.76, 0, 0.24, 1];
 
   return (
-    <div className="relative w-full min-h-screen bg-[#fafafa] overflow-hidden font-sans text-[#43310b]">
+    <section aria-label="Início" className="relative w-full min-h-screen bg-background overflow-hidden font-sans text-text-primary">
       
       {/* --- EFEITO DE REVELAÇÃO --- */}
       <motion.div
@@ -14,14 +14,14 @@ export default function Hero() {
         animate={{ scaleX: 0 }}
         transition={{ duration: 1.2, ease: easePremium, delay: 0.2 }}
         style={{ transformOrigin: "right" }}
-        className="fixed top-0 left-0 w-full h-full bg-[#43310b] z-[60] pointer-events-none"
+        className="fixed top-0 left-0 w-full h-full bg-text-primary z-[60] pointer-events-none"
       />
       <motion.div
         initial={{ scaleX: 1 }}
         animate={{ scaleX: 0 }}
         transition={{ duration: 1.2, ease: easePremium, delay: 0.35 }}
         style={{ transformOrigin: "right" }}
-        className="fixed top-0 left-0 w-full h-full bg-[#ffcf78] z-[50] pointer-events-none"
+        className="fixed top-0 left-0 w-full h-full bg-primary z-[50] pointer-events-none"
       />
 
       <style>
@@ -53,7 +53,7 @@ export default function Hero() {
           alt="Agricultor com tablet" 
           className="object-cover w-full h-full grayscale-[30%]"
         />
-        <div className="absolute inset-0 bg-gradient-to-br from-[#fafafa]/90 md:from-[#fafafa] via-[#fafafa]/90 md:via-[#fafafa]/95 to-[#fafafa]/60 md:to-[#fafafa]/50"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-background/90 md:from-background via-background/90 md:via-background/95 to-background/60 md:to-background/50"></div>
       </motion.div>
 
       {/* Elementos Decorativos Suaves */}
@@ -63,8 +63,8 @@ export default function Hero() {
         transition={{ duration: 2, delay: 1 }}
         className="absolute inset-0 w-full h-full z-0 pointer-events-none overflow-hidden"
       >
-        <div className="absolute -top-12 -right-12 w-[300px] h-[300px] md:-top-24 md:-right-16 md:w-[600px] md:h-[600px] rounded-full bg-[#FFCF78]/40 blur-[80px] md:blur-[120px] animate-float mix-blend-multiply"></div>
-        <div className="absolute -bottom-20 -left-20 w-[250px] h-[250px] md:-bottom-40 md:-left-40 md:w-[500px] md:h-[500px] rounded-full bg-[#E9D9B4]/50 blur-[60px] md:blur-[100px] animate-float-delayed mix-blend-multiply"></div>
+        <div className="absolute -top-12 -right-12 w-[300px] h-[300px] md:-top-24 md:-right-16 md:w-[600px] md:h-[600px] rounded-full bg-primary/40 blur-[80px] md:blur-[120px] animate-float mix-blend-multiply"></div>
+        <div className="absolute -bottom-20 -left-20 w-[250px] h-[250px] md:-bottom-40 md:-left-40 md:w-[500px] md:h-[500px] rounded-full bg-primary-hover/50 blur-[60px] md:blur-[100px] animate-float-delayed mix-blend-multiply"></div>
       </motion.div>
 
       {/* Linhas geométricas */}
@@ -104,9 +104,9 @@ export default function Hero() {
               hidden: { opacity: 0, y: 40 },
               visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: easePremium } }
             }}
-            className="text-4xl sm:text-5xl lg:text-[3.8rem] font-bold leading-[1.15] md:leading-[1.2] tracking-[0.03em] uppercase text-[#43310b]"
+            className="text-4xl sm:text-5xl lg:text-[3.8rem] font-bold leading-[1.15] md:leading-[1.2] tracking-[0.03em] uppercase text-text-primary"
           >
-            O controle do seu rebanho <span className="text-[#FFCF78] drop-shadow-sm">bubalino</span> começa aqui.
+             <span className="text-primary drop-shadow-sm">AgroCore.</span> Tecnologia e propósito para o campo.
           </motion.h1>
 
           <motion.p
@@ -114,9 +114,9 @@ export default function Hero() {
               hidden: { opacity: 0, y: 20 },
               visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } }
             }}
-            className="mt-5 md:mt-6 text-base sm:text-lg md:text-xl text-[#43310b]/80 max-w-2xl leading-relaxed"
+            className="mt-5 md:mt-6 text-base sm:text-lg md:text-xl text-text-primary/80 max-w-2xl leading-relaxed"
           >
-            A única plataforma calibrada para a biologia real da búfala. Gestão zootécnica e preditiva com IA para quem sabe que <strong>búfalo não é boi</strong>.
+            Somos a <strong>AgroCore</strong>. Unimos tecnologia, dados e propósito para transformar a gestão na pecuária. Conheça a equipe por trás do projeto.
           </motion.p>
           
           <motion.div 
@@ -125,7 +125,7 @@ export default function Hero() {
               visible: { scaleX: 1, opacity: 1, transition: { duration: 0.8, ease: "easeInOut" } }
             }}
             style={{ originX: 0 }}
-            className="w-12 md:w-14 h-[3px] bg-[#FFCF78] mt-6 md:mt-8 mb-8 md:mb-12"
+            className="w-12 md:w-14 h-[3px] bg-primary mt-6 md:mt-8 mb-8 md:mb-12"
           />
 
           <motion.div
@@ -135,10 +135,10 @@ export default function Hero() {
             }}
           >
             <a 
-              href="#contato" 
-              className="inline-block border border-[#43310b] px-6 py-3 md:px-8 md:py-4 text-[10px] md:text-xs font-bold tracking-[0.2em] uppercase text-[#43310b] hover:bg-[#43310b] hover:text-[#fafafa] transition-all duration-300"
+              href="#equipe"
+              className="inline-block border border-text-primary px-6 py-3 md:px-8 md:py-4 text-[10px] md:text-xs font-bold tracking-[0.2em] uppercase text-text-primary hover:bg-text-primary hover:text-text-light transition-all duration-300"
             >
-              Solicitar Acesso Beta
+              Conheça a equipe
             </a>
           </motion.div>
         </motion.div>
@@ -150,18 +150,18 @@ export default function Hero() {
           transition={{ delay: 2.5, duration: 1 }}
           className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 pointer-events-none"
         >
-          <span className="text-[9px] font-bold tracking-[0.3em] uppercase text-[#43310b]/40">Scroll</span>
-          <div className="w-[1px] h-8 bg-[#43310b]/20 relative overflow-hidden">
+          <span className="text-[9px] font-bold tracking-[0.3em] uppercase text-text-primary/40">Scroll</span>
+          <div className="w-[1px] h-8 bg-text-primary/20 relative overflow-hidden">
             <motion.div
               initial={{ y: '-100%' }}
               animate={{ y: '100%' }}
               transition={{ duration: 1.4, repeat: Infinity, ease: 'easeInOut' }}
-              className="absolute inset-x-0 top-0 h-full bg-[#ffcf78]"
+              className="absolute inset-x-0 top-0 h-full bg-primary"
             />
           </div>
         </motion.div>
 
       </div>
-    </div>
+    </section>
   );
 }
