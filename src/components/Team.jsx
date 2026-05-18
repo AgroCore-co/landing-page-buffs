@@ -91,7 +91,7 @@ Conheça a <span className="text-primary">AgroCore</span>
           </h2>
           <div className="w-12 md:w-14 h-[3px] bg-primary mt-6 md:mt-8" />
           <p className="mt-6 text-text-light/60 text-sm sm:text-base md:text-lg font-light max-w-2xl leading-relaxed">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Somos cinco estudantes da Fatec
+             Somos cinco estudantes da Fatec
             Registro que transformaram uma ideia em um projeto real de tecnologia para o campo.
           </p>
         </motion.div>
