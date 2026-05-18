@@ -27,35 +27,35 @@ export default function Team() {
       name: 'Vinicius Souza Ramos',
       role: 'Mobile Developer',
       bio: 'Responsável pelo desenvolvimento do aplicativo mobile, garantindo uma experiência fluida e offline no campo.',
-      image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=800&auto=format&fit=crop',
+      image: '/vini4.png',
     },
     {
       id: '02',
       name: 'Paulo Cesar Pedro Candiani',
       role: 'Frontend Developer & UX/UI',
       bio: 'Desenvolve as interfaces web e cuida da experiência do usuário, unindo design e código para um produto intuitivo.',
-      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=800&auto=format&fit=crop',
+      image: '/pc1.png',
     },
     {
       id: '03',
       name: 'João Pedro Kuzinor de Lima',
       role: 'Frontend Developer',
       bio: 'Constrói as interfaces e componentes visuais do projeto, transformando design em código funcional.',
-      image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=800&auto=format&fit=crop',
+      image: '/joaolima5.png',
     },
     {
       id: '04',
       name: 'Gabriel Guimarães Carneiro',
       role: 'IA Developer',
       bio: 'Desenvolve os modelos preditivos e algoritmos de inteligência artificial que sustentam as análises do AgroCore.',
-      image: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=800&auto=format&fit=crop',
+      image: '/gabriel2.png',
     },
     {
       id: '05',
       name: 'João Pedro Dias Barreto',
       role: 'Backend Developer',
       bio: 'Responsável pela API, banco de dados e infraestrutura que conectam o app ao servidor com segurança e performance.',
-      image: 'https://images.unsplash.com/photo-1463453091185-61582044d556?q=80&w=800&auto=format&fit=crop',
+      image: '/barreto3.png',
     },
   ];
 
@@ -121,15 +121,15 @@ Conheça a <span className="text-primary">AgroCore</span>
                 {/* Overlay gradiente */}
                 <div className="absolute inset-0 bg-gradient-to-t from-text-primary/70 via-transparent to-transparent opacity-60 group-hover:opacity-30 transition-opacity duration-500" />
 
-                {/* Tag do cargo */}
-                <div className="absolute top-4 left-4 bg-primary text-text-primary text-[9px] md:text-[10px] font-black tracking-[0.15em] uppercase px-3 py-1.5 shadow-lg">
-                  {member.role}
-                </div>
-
                 {/* Número */}
                 <span className="absolute top-4 right-4 text-text-light/40 text-2xl md:text-3xl font-black leading-none">
                   {member.id}
                 </span>
+
+                {/* Tag do cargo */}
+                <div className="absolute bottom-4 left-4 bg-primary text-text-primary text-[9px] md:text-[10px] font-black tracking-[0.15em] uppercase px-3 py-1.5 shadow-lg">
+                  {member.role}
+                </div>
 
                 {/* Moldura no hover */}
                 <div className="absolute inset-0 border-2 border-primary opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
