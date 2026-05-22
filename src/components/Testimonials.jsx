@@ -7,21 +7,21 @@ export default function Testimonials() {
       id: 1,
       location: "Levitare",
       date: "Fevereiro 2025",
-      image: "/image3-slide.png",
+      video: "/levitare-01-03-2025.mp4",
       description: "Primeira visita em campo para conhecer o manejo e entender como a operação funciona na prática."
     },
     {
       id: 2,
       location: "Instituto de Zootecnia",
       date: "Fevereiro 2026",
-      image: "/image2-slide.png",
+      video: "/zootecnico-01-07-2025mp4.mp4",
       description: "Primeiros testes do aplicativo mobile em ambiente offline no curral."
     },
     {
       id: 3,
       location: "Gilson Lara",
       date: "Março 2025",
-      image: "/image1-slide.png",
+      video: "/gilson-29-03-2025.mp4",
       description: "Mapeamento de rotina de manejo e identificação de gargalos operacionais."
     }
   ];
@@ -112,10 +112,14 @@ export default function Testimonials() {
             >
               <div className="relative w-full rounded-[1.5rem] md:rounded-[2rem] overflow-hidden shadow-[0_20px_40px_-10px_rgba(116,69,51,0.15)] md:shadow-[0_40px_80px_-20px_rgba(116,69,51,0.2)] border border-white select-none">
 
-                <img
-                  src={visits[activeIndex].image}
-                  alt={visits[activeIndex].location}
+                <video
+                  key={visits[activeIndex].video}
+                  src={visits[activeIndex].video}
                   className="w-full h-auto pointer-events-none"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
                 />
 
                 <div className="absolute inset-0 bg-gradient-to-t from-text-primary/90 via-text-primary/40 to-transparent flex flex-col justify-end p-6 sm:p-8 md:p-12 text-white">
