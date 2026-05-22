@@ -155,7 +155,7 @@ export default function Contact() {
         </motion.form>
 
         <motion.div variants={itemVariants} className="mt-8 md:mt-12 text-white/60 text-[10px] sm:text-xs md:text-sm tracking-widest uppercase pb-12 md:pb-0">
-          <p>Ou entre em contacto por telefone: <br className="block sm:hidden" /><span className="text-primary font-bold mt-1 sm:mt-0 inline-block">(13) 9967-27279</span></p>
+          <p>Ou entre em contato por telefone: <br className="block sm:hidden" /><span className="text-primary font-bold mt-1 sm:mt-0 inline-block">(13) 9967-27279</span></p>
         </motion.div>
 
       </motion.div>
