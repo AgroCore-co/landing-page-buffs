@@ -1,44 +1,144 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #4caf50;
-  --color-primary-hover: #53c357;
-  --color-primary-light: #53c357;
-  --color-primary-dark: #3d8b40;
+  /* --- Escala verde --------------------------------------------------- */
+  --color-primary-50: #eef8ef;
+  --color-primary-100: #d6efd8;
+  --color-primary-200: #b3e2b6;
+  --color-primary-300: #8ed292;
+  --color-primary-400: #6bc16f;
+  --color-primary-500: #4caf50;
+  --color-primary-600: #3d8b40;
+  --color-primary-700: #2c7630;
+  --color-primary-800: #205a23;
+  --color-primary-900: #163f18;
 
+  /* Aliases semanticos.
+     Contraste medido contra --color-background (#fbedd7) e
+     --color-background-dark (#744533):
+       primary          2.4:1  -> apenas preenchimentos, bordas, decoracao
+       primary-strong   4.9:1  -> texto pequeno sobre fundo claro (AA)
+       primary-accent   3.7:1  -> texto grande (>=24px bold) sobre fundo claro
+       primary-on-dark  4.7:1  -> texto pequeno sobre fundo marrom (AA)
+       primary-glow     3.1:1  -> texto grande sobre fundo marrom */
+  --color-primary: var(--color-primary-500);
+  --color-primary-hover: var(--color-primary-600);
+  --color-primary-light: var(--color-primary-300);
+  --color-primary-dark: var(--color-primary-700);
+  --color-primary-strong: var(--color-primary-700);
+  --color-primary-accent: var(--color-primary-600);
+  --color-primary-on-dark: #c8f2ca;
+  --color-primary-glow: #7ed081;
+
+  /* --- Superficies ---------------------------------------------------- */
   --color-background: #fbedd7;
-  --color-background-secondary: #fbedd7;
+  --color-background-secondary: #f5e2c6;
   --color-background-dark: #744533;
 
+  /* --- Texto ---------------------------------------------------------- */
   --color-text-primary: #744533;
   --color-text-secondary: #404040;
-  --color-text-tertiary: #838181;
+  --color-text-tertiary: #6b6b6b;
   --color-text-light: #fbedd7;
   --color-text-dark: #744533;
 
+  /* --- Bordas / estado ------------------------------------------------ */
   --color-border-primary: #b0b0b0;
-  --color-border-focus: #4caf50;
-  --color-border-error: #e90000;
+  --color-border-focus: var(--color-primary-700);
+  --color-border-error: #c40000;
+  /* Vermelho para superficies escuras: #c40000 sobre o marrom da secao de
+     contato da 1.1:1 — praticamente invisivel. Este tom da 4.5:1. */
+  --color-error-light: #ffdada;
 
   --color-link-primary: #744533;
-  --color-link-hover: #4caf50;
+  --color-link-hover: var(--color-primary-700);
 
-  --color-success: #4caf50;
-  --color-error: #e90000;
-  --color-warning: #fca90f;
-  --color-info: #b0b0b0;
+  --color-success: var(--color-primary-700);
+  --color-error: #c40000;
+  --color-warning: #a86a00;
+  --color-info: #5c5c5c;
 
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+
+  /* --- Motion --------------------------------------------------------- */
+  --ease-premium: cubic-bezier(0.76, 0, 0.24, 1);
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-/* Adicionado para o deslize suave entre as seções */
+/* Lenis controla o scroll suave. `scroll-behavior: smooth` nativo briga com
+   ele (duas animacoes concorrentes no mesmo eixo), entao fica desligado e so
+   volta como fallback quando o usuario pede movimento reduzido. */
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: auto;
 }
 
 body {
   background: var(--color-background);
   color: var(--color-text-primary);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), system-ui, -apple-system, "Segoe UI",
+    Roboto, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Foco visivel consistente. Componentes usam `focus:outline-none` para matar o
+   outline do mouse; este ring cobre navegacao por teclado. */
+:focus-visible {
+  outline: 2px solid var(--color-primary-700);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Ancoras nao ficam escondidas sob a navbar fixa quando a pagina abre
+   direto num #hash (o offset do Lenis so cobre cliques). */
+section[id] {
+  scroll-margin-top: 6rem;
+}
+
+/* --- Lenis ------------------------------------------------------------ */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+/* --- Keyframes compartilhados ----------------------------------------
+   Ficavam em <style> inline dentro do Hero, o que reinjetava a regra a cada
+   render. Aqui sao parseados uma vez. */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px) scale(1);
+  }
+  50% {
+    transform: translateY(-30px) scale(1.05);
+  }
+}
+.animate-float {
+  animation: float 8s ease-in-out infinite;
+}
+.animate-float-delayed {
+  animation: float 10s ease-in-out infinite 4s;
+}
+
+/* --- Movimento reduzido ------------------------------------------------
+   MotionConfig cuida do Framer Motion; GSAP e Lenis sao desligados no JS.
+   Isto aqui cobre animacoes e transicoes puramente CSS. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: smooth;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

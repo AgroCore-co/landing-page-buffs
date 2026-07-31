@@ -1,6 +1,6 @@
 import Head from "next/head";
 import { Geist, Geist_Mono } from "next/font/google";
-import { motion, useScroll } from "framer-motion";
+import { m, useScroll, useSpring } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
@@ -23,11 +23,17 @@ const geistMono = Geist_Mono({
 });
 
 export default function Home() {
-  // Configuração da barra de progresso baseada no scroll vertical
+  // Barra de progresso do scroll. O `useSpring` tira o degrau de 1px por
+  // frame que o valor cru produz e deixa o traço fluido.
   const { scrollYProgress } = useScroll();
+  const progress = useSpring(scrollYProgress, {
+    stiffness: 140,
+    damping: 30,
+    restDelta: 0.001,
+  });
 
   return (
-    <div className={`${geistSans.variable} ${geistMono.variable} font-sans selection:bg-primary selection:text-text-primary`}>
+    <div className={`${geistSans.variable} ${geistMono.variable} font-sans selection:bg-primary-300 selection:text-primary-900`}>
       <Head>
         <title>AgroCore | Tecnologia Inteligente para o Agro</title>
         <meta name="description" content="AgroCore é uma plataforma mobile desenvolvida para otimizar o manejo pecuário, prever produção leiteira e identificar gargalos operacionais diretamente do curral." />
@@ -91,6 +97,14 @@ export default function Home() {
         />
       </Head>
       
+      {/* Atalho de teclado: primeiro Tab da página pula a navegação. */}
+      <a
+        href="#conteudo"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[200] focus:bg-background focus:text-text-primary focus:px-4 focus:py-2 focus:text-xs focus:font-bold focus:uppercase focus:tracking-widest focus:shadow-lg"
+      >
+        Pular para o conteúdo
+      </a>
+
       {/* --- NAVBAR FIXA (Controla o fundo dinâmico e âncoras) --- */}
       <Navbar />
 
@@ -98,13 +112,13 @@ export default function Home() {
       <CustomCursor />
 
       {/* --- BARRA DE PROGRESSO (Topo do ecrã) --- */}
-      <motion.div
+      <m.div
+        aria-hidden="true"
         className="fixed top-0 left-0 right-0 h-1.5 bg-primary origin-left z-[100] shadow-[0_0_12px_rgba(76,175,80,0.6)]"
-        style={{ scaleX: scrollYProgress }}
+        style={{ scaleX: progress }}
       />
 
-      <main className="min-h-screen bg-background">
-        {/* Lembre-se de remover a <nav> interna do Hero.jsx para não duplicar */}
+      <main id="conteudo" className="min-h-screen bg-background">
         <Hero />
         
         {/* História do grupo */}
